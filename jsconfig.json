@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["src/*"],
+            "~/*": ["library/*"]
+        },
+        "jsx": "preserve"
+    },
+    "include": ["**/*.js", "**/*.vue"],
+    "exclude": ["node_modeules", "dist"]
+}
