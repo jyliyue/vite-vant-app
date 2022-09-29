@@ -32,7 +32,11 @@ const activeName = ref('a')
 
 <template>
     <app-page>
-        <van-tabs class="content" v-model:active="activeName" :animated="true">
+        <van-tabs
+            class="app-tab-list"
+            v-model:active="activeName"
+            :animated="true"
+        >
             <van-tab title="标签 1" name="a">
                 <app-list :options="options1">
                     <template #content="{ list }">
@@ -60,17 +64,4 @@ const activeName = ref('a')
     </app-page>
 </template>
 
-<style lang="scss" scoped>
-.content {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    :deep(.van-tabs__content) {
-        flex: 1;
-        overflow-y: auto;
-    }
-    :deep(.van-tab__panel) {
-        height: 100%;
-    }
-}
-</style>
+<style lang="scss" scoped></style>
