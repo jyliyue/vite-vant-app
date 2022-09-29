@@ -5,9 +5,11 @@ import server from './build/server'
 import css from './build/css'
 
 // https://vitejs.dev/config/
-export default defineConfig({
-    resolve,
-    plugins,
-    css,
-    server
-})
+export default ({ mode }) => {
+    return defineConfig({
+        resolve,
+        plugins: plugins(mode),
+        css,
+        server
+    })
+}
