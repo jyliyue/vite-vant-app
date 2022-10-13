@@ -10,7 +10,7 @@ export default ({ mode }) => {
     return defineConfig({
         base: env.VITE_PUBLIC_PATH,
         resolve,
-        plugins: plugins(mode),
+        plugins: plugins(env),
         css,
         server
     })

@@ -1,13 +1,11 @@
 import vue from '@vitejs/plugin-vue'
-import { loadEnv } from 'vite'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 import { VantResolver } from 'unplugin-vue-components/resolvers'
 
-const plugins = (mode) => {
-    const env = loadEnv(mode, process.cwd())
+const plugins = (env) => {
     return [
         vue(),
         VueSetupExtend(),
