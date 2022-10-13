@@ -12,7 +12,7 @@ class Account {
 
     login = () => {
         const { setToken } = useUserStore()
-        setToken()
+        setToken('token')
         router.push({
             name: 'demo'
         })

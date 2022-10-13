@@ -1,5 +1,12 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
+import { useUserStore } from '@/store/modules/user'
+const user = useUserStore()
+
+user.setToken('my token')
+console.log(user.token)     // my token
+console.log(user.count)     // 1
+console.log(user.double)    // 2
 </script>
 
 <template>

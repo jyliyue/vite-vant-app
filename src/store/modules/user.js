@@ -6,12 +6,17 @@ export const useUserStore = defineStore('user', {
     // 开启数据持久化
     persist: true,
     state: () => ({
-        token: 'token'
+        token: 'token',
+        count: 1
     }),
-    getters: {},
+    getters: {
+        double() {
+            return this.count * 2
+        }
+    },
     actions: {
-        setToken() {
-            this.token = 'admin'
+        setToken(data) {
+            this.token = data
         }
     }
 })
