@@ -5,7 +5,7 @@ import ListModel from '~/class/ListModle'
 
 const props = defineProps({
     options: {
-        type: Function,
+        type: Object,
         default: () => {}
     }
 })
