@@ -41,7 +41,7 @@ const route = useRoute()
     flex-direction: column;
     .app-main {
         flex: 1;
-        overflow: scroll;
+        overflow: auto;
     }
 }
 </style>
