@@ -11,7 +11,7 @@ const options = {
                     data: new Array(20),
                     total: 30
                 })
-            }, 2000)
+            }, 1000)
         })
     }
 }

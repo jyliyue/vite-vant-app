@@ -3,7 +3,9 @@ import { reactive } from 'vue'
 class ListModel {
     constructor(options) {
         this.data = reactive({
-            list: [],
+            list: []
+        })
+        this.ui = reactive({
             loading: false,
             refreshing: false,
             finished: false,
@@ -16,17 +18,17 @@ class ListModel {
     onLoad = () => {
         this.options.getData().then((res) => {
             this.data.list = this.data.list.concat(res.data)
-            this.data.refreshing = false
-            this.data.loading = false
+            this.ui.refreshing = false
+            this.ui.loading = false
             if (this.data.list.length >= res.total) {
-                this.data.finished = true
+                this.ui.finished = true
             }
         })
     }
 
     onRefresh = () => {
-        this.data.finished = false
-        this.data.loading = true
+        this.ui.finished = false
+        this.ui.loading = true
         this.data.list = []
         this.onLoad()
     }

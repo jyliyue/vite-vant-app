@@ -11,24 +11,15 @@ const props = defineProps({
 })
 
 // 初始化列表模型
-const { listModel, data } = useListModel()
-const { refreshing, successText, loading, finished, finishedText, list } =
-    toRefs(data)
+const listModel = new ListModel(props.options)
+// 解构出UI层和业务层数据
+const { ui, data } = listModel
+// UI层解构出插件动作需要的参数
+const { refreshing, successText, loading, finished, finishedText } = toRefs(ui)
+// 业务层解构出列表数据
+const { list } = toRefs(data)
+// 模型层解构出方法
 const { onRefresh, onLoad } = listModel
-// 初始化滚动缓存
-const { listRef } = useScrollCache()
-
-/**
- * @description: 列表模型
- */
-function useListModel() {
-    const listModel = new ListModel(props.options)
-    const data = listModel.data
-    return {
-        listModel,
-        data
-    }
-}
 
 /**
  * @description: 滚动定位缓存
