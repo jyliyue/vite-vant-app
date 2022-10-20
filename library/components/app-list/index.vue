@@ -21,6 +21,8 @@ const { list } = toRefs(data)
 // 模型层解构出方法
 const { onRefresh, onLoad } = listModel
 
+const { listRef } = useScrollCache()
+
 /**
  * @description: 滚动定位缓存
  */
@@ -28,6 +30,7 @@ function useScrollCache() {
     const listRef = ref(null)
     let scrollTop = 0
     onMounted(() => {
+        // console.log(listRef);
         listRef.value.addEventListener(
             'scroll',
             (e) => {
@@ -37,6 +40,7 @@ function useScrollCache() {
         )
     })
     onActivated(() => {
+        console.log(scrollTop)
         listRef.value.scrollTop = scrollTop
     })
 

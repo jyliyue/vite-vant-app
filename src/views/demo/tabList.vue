@@ -9,7 +9,7 @@ const options1 = {
                     data: new Array(20),
                     total: 30
                 })
-            }, 2000)
+            }, 1000)
         })
     }
 }
@@ -22,7 +22,7 @@ const options2 = {
                     data: new Array(20),
                     total: 30
                 })
-            }, 2000)
+            }, 1000)
         })
     }
 }
