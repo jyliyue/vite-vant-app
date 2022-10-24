@@ -1,6 +1,7 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 import { onActivated, onMounted } from 'vue'
+import { onBeforeRouteLeave } from 'vue-router'
 import ListModel from '~/class/ListModle'
 
 const props = defineProps({
@@ -29,19 +30,11 @@ const { listRef } = useScrollCache()
 function useScrollCache() {
     const listRef = ref(null)
     let scrollTop = 0
-    onMounted(() => {
-        // console.log(listRef);
-        listRef.value.addEventListener(
-            'scroll',
-            (e) => {
-                scrollTop = e.target.scrollTop
-            },
-            true
-        )
-    })
     onActivated(() => {
-        console.log(scrollTop)
         listRef.value.scrollTop = scrollTop
+    })
+    onBeforeRouteLeave(() => {
+        scrollTop = listRef.value.scrollTop
     })
 
     return {
